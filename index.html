@@ -7,10 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --black:#050505; --deep:#0a0a0f;
-    --gold:#c9a84c; --gold-light:#e8c97a; --gold-pale:#f5e6b8;
-    --blue:#1a3a6e; --blue-mid:#2255a8; --blue-light:#4a80d4; --blue-bright:#6fa3f5;
-    --white:#f5f0e8; --grey:#8a8070;
+    --black:#050505;--gold:#c9a84c;--gold-light:#e8c97a;--gold-pale:#f5e6b8;
+    --blue:#1a3a6e;--blue-mid:#2255a8;--blue-light:#4a80d4;--blue-bright:#6fa3f5;
+    --white:#f5f0e8;--grey:#8a8070;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -18,6 +17,7 @@
   body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(26,58,110,.35) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 80% 100%,rgba(201,168,76,.12) 0%,transparent 55%),radial-gradient(ellipse 40% 60% at 10% 50%,rgba(26,58,110,.18) 0%,transparent 50%);pointer-events:none;z-index:0;}
   .deco-top{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--blue-mid) 20%,var(--gold) 50%,var(--blue-mid) 80%,transparent);z-index:100;}
   .deco-bot{position:fixed;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--blue-light) 70%,transparent);z-index:100;}
+
   /* NAV */
   nav{position:fixed;top:2px;left:0;right:0;z-index:99;display:flex;justify-content:space-between;align-items:center;padding:18px 60px;background:linear-gradient(180deg,rgba(5,5,5,.95),rgba(5,5,5,.6));backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.15);}
   .nav-brand{font-family:'Cinzel',serif;font-size:1rem;letter-spacing:.35em;color:var(--gold);text-decoration:none;}
@@ -26,20 +26,23 @@
   .nav-links a:hover{color:var(--gold-light);}
   .nav-admin{background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gold);font-family:'Lato',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;padding:8px 20px;cursor:pointer;transition:all .3s;}
   .nav-admin:hover{background:rgba(201,168,76,.1);border-color:var(--gold);}
+
   /* HERO */
   #hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 40px 80px;}
   .hero-orn{display:flex;align-items:center;gap:20px;margin-bottom:28px;opacity:0;animation:fadeUp 1s .2s forwards;}
-  .hero-orn-line{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
-  .hero-orn-line:last-child{background:linear-gradient(90deg,var(--gold),transparent);}
+  .orn-line{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+  .orn-line:last-child{background:linear-gradient(90deg,var(--gold),transparent);}
   .hero-orn span{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;}
   .hero-name{font-family:'Monotype Corsiva','Cormorant Garamond',cursive;font-size:clamp(5rem,14vw,11rem);font-weight:400;line-height:1;background:linear-gradient(135deg,var(--gold-pale),var(--gold) 40%,var(--blue-bright) 70%,var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0;animation:fadeUp 1.2s .5s forwards;filter:drop-shadow(0 0 40px rgba(201,168,76,.2));}
   .hero-tag{margin-top:24px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--grey);letter-spacing:.12em;opacity:0;animation:fadeUp 1s .9s forwards;}
   .hero-div{margin:40px auto 0;width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--blue-light),transparent);opacity:0;animation:fadeUp 1s 1.2s forwards;}
+
   /* SECTIONS */
   section{position:relative;z-index:1;}
   .sec-label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:14px;}
   .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:300;text-align:center;color:var(--white);margin-bottom:60px;letter-spacing:.05em;}
   .sec-title span{color:var(--gold);font-style:italic;}
+
   /* BOOKS */
   #books{padding:100px 60px;}
   .books-grid{max-width:1200px;margin:0 auto;}
@@ -48,8 +51,8 @@
   .book-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--blue-light),transparent);opacity:0;transition:opacity .4s;}
   .book-card:hover{transform:translateY(-8px);border-color:rgba(201,168,76,.35);background:linear-gradient(160deg,rgba(26,58,110,.18),rgba(10,10,15,.9));box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 30px rgba(201,168,76,.08);}
   .book-card:hover::before{opacity:1;}
-  .book-cover{width:155px;height:220px;position:relative;margin-bottom:22px;box-shadow:8px 8px 30px rgba(0,0,0,.7);background:linear-gradient(135deg,rgba(26,58,110,.4),rgba(201,168,76,.1));display:flex;align-items:center;justify-content:center;overflow:hidden;}
-  .book-cover img{width:100%;height:100%;object-fit:cover;}
+  .book-cover{width:155px;height:220px;margin-bottom:22px;box-shadow:8px 8px 30px rgba(0,0,0,.7);background:linear-gradient(135deg,rgba(26,58,110,.4),rgba(201,168,76,.1));display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+  .book-cover img{width:100%;height:100%;object-fit:cover;display:block;}
   .book-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.04),transparent 60%);pointer-events:none;}
   .book-cover-ph{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.2em;color:rgba(201,168,76,.4);text-align:center;padding:16px;}
   .book-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--white);text-align:center;letter-spacing:.05em;margin-bottom:6px;min-height:2.2em;}
@@ -59,6 +62,7 @@
   .buy-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,58,110,.4),rgba(201,168,76,.2));opacity:0;transition:opacity .35s;}
   .buy-btn:hover::before{opacity:1;}
   .buy-btn:hover{color:var(--gold-pale);}
+
   /* AUTHOR */
   #author{padding:80px 60px 100px;border-top:1px solid rgba(201,168,76,.1);}
   .author-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:center;}
@@ -70,7 +74,6 @@
   .corner.tr{top:-4px;right:-4px;border-width:2px 2px 0 0;}
   .corner.bl{bottom:-4px;left:-4px;border-width:0 0 2px 2px;}
   .corner.br{bottom:-4px;right:-4px;border-width:0 2px 2px 0;}
-  .author-content .sec-label,.author-content .sec-title{text-align:left;}
   .author-script{font-family:'Monotype Corsiva','Cormorant Garamond',cursive;font-size:2.8rem;background:linear-gradient(135deg,var(--gold-pale),var(--gold),var(--blue-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:24px;display:block;}
   .author-div{width:60px;height:1px;background:linear-gradient(90deg,var(--gold),var(--blue-light));margin-bottom:28px;}
   .author-bio p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;line-height:1.85;color:rgba(245,240,232,.75);margin-bottom:18px;font-weight:300;}
@@ -78,41 +81,37 @@
   .socials a{color:var(--grey);text-decoration:none;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;border-bottom:1px solid rgba(201,168,76,.2);padding-bottom:2px;transition:all .3s;}
   .socials a:hover{color:var(--gold-light);border-color:var(--gold);}
   .soc-sep{width:1px;height:14px;background:rgba(201,168,76,.3);}
+
   /* FOOTER */
   footer{position:relative;z-index:1;text-align:center;padding:40px 60px;border-top:1px solid rgba(26,58,110,.3);font-size:.7rem;letter-spacing:.2em;color:rgba(138,128,112,.5);text-transform:uppercase;}
   footer span{color:rgba(201,168,76,.4);margin:0 8px;}
-  /* LOADER */
-  #loader{position:fixed;inset:0;z-index:500;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .6s;}
-  .lo-name{font-family:'Monotype Corsiva','Cormorant Garamond',cursive;font-size:3rem;background:linear-gradient(135deg,var(--gold-pale),var(--gold),var(--blue-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-  .lo-bar{width:200px;height:1px;background:rgba(201,168,76,.15);position:relative;overflow:hidden;}
-  .lo-bar::after{content:'';position:absolute;left:-100%;top:0;height:100%;width:100%;background:linear-gradient(90deg,transparent,var(--gold),var(--blue-light),transparent);animation:slide 1.2s infinite;}
-  .lo-txt{font-size:.65rem;letter-spacing:.3em;color:var(--grey);text-transform:uppercase;}
-  @keyframes slide{to{left:200%;}}
+
   @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
   /* ADMIN */
   #admin-ov{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);overflow-y:auto;}
   #admin-ov.on{display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;}
   .a-panel{width:100%;max-width:780px;background:linear-gradient(135deg,rgba(10,10,15,.98),rgba(15,20,35,.98));border:1px solid rgba(201,168,76,.25);padding:50px 50px 40px;position:relative;margin:auto;}
   .a-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue-mid),var(--gold),var(--blue-mid));}
-  .a-x{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--grey);font-size:1.4rem;cursor:pointer;transition:color .2s;line-height:1;}
+  .a-x{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--grey);font-size:1.4rem;cursor:pointer;line-height:1;transition:color .2s;}
   .a-x:hover{color:var(--gold);}
   .a-h1{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
   .a-sub{font-size:.8rem;color:var(--grey);letter-spacing:.1em;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid rgba(201,168,76,.1);}
   .a-err{color:#e06060;font-size:.8rem;margin-top:10px;display:none;}
   .a-msg{font-size:.8rem;letter-spacing:.05em;padding:12px 16px;margin-bottom:22px;display:none;}
   .a-msg.ok{background:rgba(26,58,110,.25);border:1px solid rgba(74,128,212,.3);color:var(--blue-bright);}
-  .a-msg.err{background:rgba(110,26,26,.25);border:1px solid rgba(200,80,80,.3);color:#e08080;}
-  .a-sec{margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid rgba(201,168,76,.08);}
-  .a-sec:last-child{border-bottom:none;margin-bottom:0;}
-  .a-sec-t{font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.3em;color:var(--blue-bright);text-transform:uppercase;margin-bottom:20px;}
+  .a-msg.bad{background:rgba(110,26,26,.25);border:1px solid rgba(200,80,80,.3);color:#e08080;}
   .a-field{margin-bottom:22px;}
   .a-field label{display:block;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
   .a-field input,.a-field textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);border-radius:0;color:var(--white);font-family:'Lato',sans-serif;font-size:.9rem;padding:12px 16px;outline:none;transition:border-color .3s;}
   .a-field input:focus,.a-field textarea:focus{border-color:rgba(201,168,76,.5);background:rgba(201,168,76,.04);}
   .a-field textarea{min-height:90px;resize:vertical;}
-  .a-btn{background:linear-gradient(90deg,rgba(26,58,110,.6),rgba(201,168,76,.3));border:1px solid rgba(201,168,76,.4);color:var(--white);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;padding:13px 36px;cursor:pointer;transition:all .3s;display:inline-block;}
+  .a-btn{background:linear-gradient(90deg,rgba(26,58,110,.6),rgba(201,168,76,.3));border:1px solid rgba(201,168,76,.4);color:var(--white);font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;padding:13px 36px;cursor:pointer;transition:all .3s;}
   .a-btn:hover{background:linear-gradient(90deg,rgba(26,58,110,.9),rgba(201,168,76,.5));border-color:var(--gold);}
   .a-btn:disabled{opacity:.5;cursor:not-allowed;}
+  .a-sec{margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid rgba(201,168,76,.08);}
+  .a-sec:last-child{border-bottom:none;margin-bottom:0;}
+  .a-sec-t{font-family:'Cinzel',serif;font-size:.75rem;letter-spacing:.3em;color:var(--blue-bright);text-transform:uppercase;margin-bottom:20px;}
   .tabs{display:flex;margin-bottom:28px;border-bottom:1px solid rgba(201,168,76,.15);}
   .t-btn{background:none;border:none;border-bottom:2px solid transparent;color:var(--grey);font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;padding:10px 22px;cursor:pointer;transition:all .3s;margin-bottom:-1px;}
   .t-btn.on{color:var(--gold);border-bottom-color:var(--gold);}
@@ -122,6 +121,7 @@
   .bk-block-t{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2em;color:var(--gold);margin-bottom:12px;}
   .bk-grid{display:grid;grid-template-columns:1fr 1fr 120px;gap:12px;}
   .bk-grid .a-field{margin:0;}
+
   @media(max-width:900px){
     nav{padding:14px 24px;}
     #books{padding:80px 20px;}
@@ -137,89 +137,123 @@
 </head>
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="lo-name">RonnDu</div>
-  <div class="lo-bar"></div>
-  <div class="lo-txt">Cargando contenido…</div>
-</div>
+<div class="deco-top"></div>
+<div class="deco-bot"></div>
 
-<div id="site" style="opacity:0;transition:opacity .6s;">
-  <div class="deco-top"></div>
-  <div class="deco-bot"></div>
+<nav>
+  <a href="#" class="nav-brand">RonnDu</a>
+  <ul class="nav-links">
+    <li><a href="#books">Libros</a></li>
+    <li><a href="#author">El Autor</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <button class="nav-admin" onclick="openAdmin()">Panel Admin</button>
+</nav>
 
-  <nav>
-    <a href="#" class="nav-brand">RonnDu</a>
-    <ul class="nav-links">
-      <li><a href="#books">Libros</a></li>
-      <li><a href="#author">El Autor</a></li>
-      <li><a href="#contact">Contacto</a></li>
-    </ul>
-    <button class="nav-admin" onclick="openAdmin()">Panel Admin</button>
-  </nav>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-orn">
+    <span class="orn-line"></span>
+    <span>Escritor Independiente</span>
+    <span class="orn-line"></span>
+  </div>
+  <h1 class="hero-name" id="hero-name">RonnDu</h1>
+  <p class="hero-tag" id="hero-tag">Palabras que transforman · historias que permanecen</p>
+  <div class="hero-div"></div>
+</section>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-orn">
-      <span class="hero-orn-line"></span>
-      <span>Escritor Independiente</span>
-      <span class="hero-orn-line"></span>
-    </div>
-    <h1 class="hero-name" id="hero-name">RonnDu</h1>
-    <p class="hero-tag" id="hero-tag">Palabras que transforman · historias que permanecen</p>
-    <div class="hero-div"></div>
-  </section>
-
-  <!-- BOOKS -->
-  <section id="books">
-    <p class="sec-label">Bibliografía</p>
-    <h2 class="sec-title">Obras <span>Publicadas</span></h2>
-    <div class="books-grid">
-      <div class="books-row" id="row1"></div>
-      <div class="books-row" id="row2"></div>
-    </div>
-  </section>
-
-  <!-- AUTHOR -->
-  <section id="author">
-    <div class="author-inner">
-      <div class="author-image-wrap">
-        <div class="author-frame" id="author-frame">
-          <img id="author-img" src="" alt="RonnDu" style="display:none;">
-          <div id="author-ph" style="font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;color:rgba(201,168,76,.3);text-align:center;padding:40px;">FOTO DEL AUTOR</div>
-          <div class="corner tl"></div><div class="corner tr"></div>
-          <div class="corner bl"></div><div class="corner br"></div>
-        </div>
+<!-- BOOKS -->
+<section id="books">
+  <p class="sec-label">Bibliografía</p>
+  <h2 class="sec-title">Obras <span>Publicadas</span></h2>
+  <div class="books-grid">
+    <!-- FILA 1: 3 libros -->
+    <div class="books-row">
+      <div class="book-card">
+        <div class="book-cover"><img id="cover0" src="https://cdn.phototourl.com/free/2026-05-13-0d2fab4f-b99c-4224-8319-0ae54734e619.png" alt="Libro 1"></div>
+        <h3 class="book-title" id="btitle0">Sin título</h3>
+        <p class="book-genre" id="bgenre0">Narrativa</p>
+        <div class="book-price" id="bprice0">$14.99</div>
+        <button class="buy-btn" onclick="buyBook(0)">Comprar</button>
       </div>
-      <div class="author-content">
-        <p class="sec-label">Sobre el Autor</p>
-        <span class="author-script" id="author-name">RonnDu</span>
-        <div class="author-div"></div>
-        <div class="author-bio">
-          <p id="bio1"></p><p id="bio2"></p><p id="bio3"></p>
-        </div>
-        <div class="socials" id="contact">
-          <a href="#" id="sx">Twitter / X</a>
-          <span class="soc-sep"></span>
-          <a href="#" id="sig">Instagram</a>
-          <span class="soc-sep"></span>
-          <a href="#" id="sem">Contacto</a>
-        </div>
+      <div class="book-card">
+        <div class="book-cover"><img id="cover1" src="https://cdn.phototourl.com/free/2026-05-13-2ada8a5d-260d-4604-88bc-8d5e56d22f1f.jpg" alt="Libro 2"></div>
+        <h3 class="book-title" id="btitle1">Sin título</h3>
+        <p class="book-genre" id="bgenre1">Narrativa</p>
+        <div class="book-price" id="bprice1">$14.99</div>
+        <button class="buy-btn" onclick="buyBook(1)">Comprar</button>
+      </div>
+      <div class="book-card">
+        <div class="book-cover"><img id="cover2" src="https://cdn.phototourl.com/free/2026-05-13-0a31dda0-7d1b-4697-8678-9645e2080f73.png" alt="Libro 3"></div>
+        <h3 class="book-title" id="btitle2">Sin título</h3>
+        <p class="book-genre" id="bgenre2">Narrativa</p>
+        <div class="book-price" id="bprice2">$14.99</div>
+        <button class="buy-btn" onclick="buyBook(2)">Comprar</button>
       </div>
     </div>
-  </section>
+    <!-- FILA 2: 2 libros -->
+    <div class="books-row">
+      <div class="book-card">
+        <div class="book-cover" id="cover3wrap"><div class="book-cover-ph">PRÓXIMAMENTE</div></div>
+        <h3 class="book-title" id="btitle3">Próximamente</h3>
+        <p class="book-genre" id="bgenre3">Narrativa</p>
+        <div class="book-price" id="bprice3">$14.99</div>
+        <button class="buy-btn" onclick="buyBook(3)">Comprar</button>
+      </div>
+      <div class="book-card">
+        <div class="book-cover" id="cover4wrap"><div class="book-cover-ph">PRÓXIMAMENTE</div></div>
+        <h3 class="book-title" id="btitle4">Próximamente</h3>
+        <p class="book-genre" id="bgenre4">Narrativa</p>
+        <div class="book-price" id="bprice4">$14.99</div>
+        <button class="buy-btn" onclick="buyBook(4)">Comprar</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer><p>© 2026 <span>·</span> RonnDu <span>·</span> Todos los derechos reservados</p></footer>
-</div>
+<!-- AUTHOR -->
+<section id="author">
+  <div class="author-inner">
+    <div class="author-image-wrap">
+      <div class="author-frame">
+        <img id="author-img" src="" alt="RonnDu" style="display:none;">
+        <div id="author-ph" style="font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.2em;color:rgba(201,168,76,.3);text-align:center;padding:40px;">FOTO DEL AUTOR</div>
+        <div class="corner tl"></div><div class="corner tr"></div>
+        <div class="corner bl"></div><div class="corner br"></div>
+      </div>
+    </div>
+    <div class="author-content">
+      <p class="sec-label">Sobre el Autor</p>
+      <span class="author-script" id="author-name">RonnDu</span>
+      <div class="author-div"></div>
+      <div class="author-bio">
+        <p id="bio1">Escritor independiente con una pasión por explorar los límites de la narrativa contemporánea. Mi trabajo se centra en crear historias que desafían las convenciones mientras mantienen una conexión profunda con la experiencia humana.</p>
+        <p id="bio2">Creo en el poder de las palabras para transformar, provocar y conectar. Cada libro que escribo es una invitación a ver el mundo desde una perspectiva diferente, a cuestionar lo establecido y a encontrar belleza en lo inesperado.</p>
+        <p id="bio3">Mi visión como escritor es crear obras que permanezcan con el lector mucho después de cerrar la última página. Historias que generen conversaciones, que inspiren reflexión y que, sobre todo, entretengan y emocionen.</p>
+      </div>
+      <div class="socials" id="contact">
+        <a href="#" id="sx">Twitter / X</a>
+        <span class="soc-sep"></span>
+        <a href="#" id="sig">Instagram</a>
+        <span class="soc-sep"></span>
+        <a href="#" id="sem">Contacto</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ADMIN -->
+<footer>
+  <p>© 2026 <span>·</span> RonnDu <span>·</span> Todos los derechos reservados</p>
+</footer>
+
+<!-- ═══════════ ADMIN ═══════════ -->
 <div id="admin-ov">
   <div class="a-panel">
     <button class="a-x" onclick="closeAdmin()">✕</button>
 
     <div id="a-login">
       <p class="a-h1">Panel de Administración</p>
-      <p class="a-sub">Acceso restringido — introduzca sus credenciales</p>
+      <p class="a-sub">Acceso restringido</p>
       <div class="a-field"><label>Usuario</label><input type="text" id="lu" placeholder="admin"></div>
       <div class="a-field"><label>Contraseña</label><input type="password" id="lp" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
       <p class="a-err" id="lerr">Credenciales incorrectas.</p>
@@ -228,7 +262,7 @@
 
     <div id="a-main" style="display:none;">
       <p class="a-h1">Panel de Administración</p>
-      <p class="a-sub">Cambios guardados directamente en la base de datos Supabase</p>
+      <p class="a-sub" id="a-sub-db">Conectando con Supabase…</p>
       <div class="a-msg" id="amsg"></div>
 
       <div class="tabs">
@@ -249,7 +283,7 @@
 
       <div class="t-pane" id="p-books">
         <div class="a-sec">
-          <p class="a-sec-t">Gestión de Libros (5 en total)</p>
+          <p class="a-sec-t">Gestión de Libros</p>
           <div id="bklist"></div>
           <button class="a-btn" id="bsb" onclick="saveBooks()">Guardar Todos los Libros</button>
         </div>
@@ -270,8 +304,8 @@
       <div class="t-pane" id="p-social">
         <div class="a-sec">
           <p class="a-sec-t">Redes Sociales & Contacto</p>
-          <div class="a-field"><label>Twitter / X (URL)</label><input type="text" id="fsx" placeholder="https://x.com/..."></div>
-          <div class="a-field"><label>Instagram (URL)</label><input type="text" id="fsi" placeholder="https://instagram.com/..."></div>
+          <div class="a-field"><label>Twitter / X</label><input type="text" id="fsx" placeholder="https://x.com/..."></div>
+          <div class="a-field"><label>Instagram</label><input type="text" id="fsi" placeholder="https://instagram.com/..."></div>
           <div class="a-field"><label>Email</label><input type="text" id="fse" placeholder="mailto:correo@ejemplo.com"></div>
           <button class="a-btn" id="bss" onclick="saveSocial()">Guardar Redes</button>
         </div>
@@ -281,120 +315,118 @@
 </div>
 
 <script>
-// ── Supabase config ──
-const URL_SB = 'https://gxxfvyguyolfwcpnuttq.supabase.co';
-const KEY_SB = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4eGZ2eWd1eW9sZndjcG51dHRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2Mjk4MDMsImV4cCI6MjA5NDIwNTgwM30.FPcKO0xKaYLNBhV2np9dDwTRcj_AgVTbEQSzID9_PrQ';
-const HDR = { 'apikey': KEY_SB, 'Authorization': 'Bearer ' + KEY_SB, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' };
+// ─── Supabase ───
+const SB  = 'https://gxxfvyguyolfwcpnuttq.supabase.co';
+const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4eGZ2eWd1eW9sZndjcG51dHRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2Mjk4MDMsImV4cCI6MjA5NDIwNTgwM30.FPcKO0xKaYLNBhV2np9dDwTRcj_AgVTbEQSzID9_PrQ';
+const H   = { 'apikey':KEY, 'Authorization':'Bearer '+KEY, 'Content-Type':'application/json', 'Prefer':'return=minimal' };
 
-async function sbFetch(table) {
-  const r = await fetch(`${URL_SB}/rest/v1/${table}?select=*&order=id`, { headers: HDR });
-  if (!r.ok) throw new Error('fetch error');
-  return r.json();
-}
-async function sbUpsert(table, data) {
-  const r = await fetch(`${URL_SB}/rest/v1/${table}`, {
-    method: 'POST',
-    headers: { ...HDR, 'Prefer': 'resolution=merge-duplicates' },
-    body: JSON.stringify(data)
-  });
-  if (!r.ok) throw new Error('upsert error');
-}
+// ─── Estado local (datos por defecto ya están en el HTML) ───
+let books = [
+  {id:1,title:'Sin título',genre:'Narrativa',price:'$14.99',buy_url:'#',cover_url:'https://cdn.phototourl.com/free/2026-05-13-0d2fab4f-b99c-4224-8319-0ae54734e619.png'},
+  {id:2,title:'Sin título',genre:'Narrativa',price:'$14.99',buy_url:'#',cover_url:'https://cdn.phototourl.com/free/2026-05-13-2ada8a5d-260d-4604-88bc-8d5e56d22f1f.jpg'},
+  {id:3,title:'Sin título',genre:'Narrativa',price:'$14.99',buy_url:'#',cover_url:'https://cdn.phototourl.com/free/2026-05-13-0a31dda0-7d1b-4697-8678-9645e2080f73.png'},
+  {id:4,title:'Próximamente',genre:'Narrativa',price:'$14.99',buy_url:'#',cover_url:''},
+  {id:5,title:'Próximamente',genre:'Narrativa',price:'$14.99',buy_url:'#',cover_url:''},
+];
+let cnt = {
+  hero_name:'RonnDu', hero_tagline:'Palabras que transforman · historias que permanecen',
+  author_name:'RonnDu', author_img:'',
+  bio_1:'Escritor independiente con una pasión por explorar los límites de la narrativa contemporánea. Mi trabajo se centra en crear historias que desafían las convenciones mientras mantienen una conexión profunda con la experiencia humana.',
+  bio_2:'Creo en el poder de las palabras para transformar, provocar y conectar. Cada libro que escribo es una invitación a ver el mundo desde una perspectiva diferente, a cuestionar lo establecido y a encontrar belleza en lo inesperado.',
+  bio_3:'Mi visión como escritor es crear obras que permanezcan con el lector mucho después de cerrar la última página. Historias que generen conversaciones, que inspiren reflexión y que, sobre todo, entretengan y emocionen.',
+  social_x:'#', social_ig:'#', social_email:'#'
+};
+let sbOk = false;
 
-// ── State ──
-let books = [], cnt = {};
-
-// ── Load & Render ──
-async function init() {
+// ─── Cargar desde Supabase (sin bloquear la página) ───
+async function loadFromSupabase() {
   try {
-    const [bd, cd] = await Promise.all([sbFetch('books'), sbFetch('site_content')]);
-    books = bd;
-    cnt = {};
+    const [rb, rc] = await Promise.all([
+      fetch(`${SB}/rest/v1/books?select=*&order=id`, {headers:H}),
+      fetch(`${SB}/rest/v1/site_content?select=*`, {headers:H})
+    ]);
+    if (!rb.ok || !rc.ok) throw new Error('HTTP error');
+    const bd = await rb.json();
+    const cd = await rc.json();
+    if (bd.length) { books = bd; applyBooks(); }
     cd.forEach(r => cnt[r.key] = r.value);
-    renderHero(); renderBooks(); renderAuthor(); renderSocial();
-  } catch(e) { console.error(e); }
-  // Hide loader
-  const lo = document.getElementById('loader');
-  const si = document.getElementById('site');
-  lo.style.opacity = '0';
-  setTimeout(() => { lo.style.display = 'none'; si.style.opacity = '1'; }, 600);
+    applyContent();
+    sbOk = true;
+    document.getElementById('a-sub-db').textContent = '✓ Conectado a Supabase — cambios guardados en la base de datos';
+    document.getElementById('a-sub-db').style.color = '#6fa3f5';
+  } catch(e) {
+    sbOk = false;
+    document.getElementById('a-sub-db').textContent = '⚠ Sin conexión a Supabase — cambios solo en esta sesión';
+    document.getElementById('a-sub-db').style.color = '#e8c97a';
+    console.warn('Supabase no disponible (CORS o red). Usando datos locales.');
+  }
 }
 
-function renderHero() {
+// ─── Aplicar datos al DOM ───
+function applyContent() {
   document.getElementById('hero-name').innerText = cnt.hero_name || 'RonnDu';
   document.getElementById('hero-tag').innerText  = cnt.hero_tagline || '';
-}
-
-function renderBooks() {
-  const r1 = document.getElementById('row1');
-  const r2 = document.getElementById('row2');
-  r1.innerHTML = r2.innerHTML = '';
-  books.forEach((b, i) => {
-    const cover = b.cover_url
-      ? `<img src="${b.cover_url}" alt="${esc(b.title)}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="book-cover-ph" style="display:none">PRÓXIMAMENTE</div>`
-      : `<div class="book-cover-ph">PRÓXIMAMENTE</div>`;
-    const card = document.createElement('div');
-    card.className = 'book-card';
-    card.innerHTML = `<div class="book-cover">${cover}</div>
-      <h3 class="book-title">${esc(b.title)}</h3>
-      <p class="book-genre">${esc(b.genre)}</p>
-      <div class="book-price">${esc(b.price)}</div>
-      <button class="buy-btn" onclick="buyBook(${i})">Comprar</button>`;
-    (i < 3 ? r1 : r2).appendChild(card);
-  });
-}
-
-function renderAuthor() {
   document.getElementById('author-name').innerText = cnt.author_name || 'RonnDu';
   document.getElementById('bio1').innerText = cnt.bio_1 || '';
   document.getElementById('bio2').innerText = cnt.bio_2 || '';
   document.getElementById('bio3').innerText = cnt.bio_3 || '';
   const img = document.getElementById('author-img');
   const ph  = document.getElementById('author-ph');
-  if (cnt.author_img) { img.src = cnt.author_img; img.style.display = 'block'; ph.style.display = 'none'; }
-  else { img.style.display = 'none'; ph.style.display = 'block'; }
+  if (cnt.author_img) { img.src = cnt.author_img; img.style.display='block'; ph.style.display='none'; }
+  else { img.style.display='none'; ph.style.display='block'; }
+  if (cnt.social_x && cnt.social_x !== '#')     document.getElementById('sx').href  = cnt.social_x;
+  if (cnt.social_ig && cnt.social_ig !== '#')   document.getElementById('sig').href = cnt.social_ig;
+  if (cnt.social_email && cnt.social_email !== '#') document.getElementById('sem').href = cnt.social_email;
 }
 
-function renderSocial() {
-  if (cnt.social_x)     document.getElementById('sx').href  = cnt.social_x;
-  if (cnt.social_ig)    document.getElementById('sig').href = cnt.social_ig;
-  if (cnt.social_email) document.getElementById('sem').href = cnt.social_email;
+function applyBooks() {
+  books.forEach((b, i) => {
+    const titleEl = document.getElementById('btitle'+i);
+    const genreEl = document.getElementById('bgenre'+i);
+    const priceEl = document.getElementById('bprice'+i);
+    if (titleEl) titleEl.innerText = b.title;
+    if (genreEl) genreEl.innerText = b.genre;
+    if (priceEl) priceEl.innerText = b.price;
+    // portada para libros 3 y 4 (los "próximamente") si se asigna URL
+    if (i >= 3 && b.cover_url) {
+      const wrap = document.getElementById('cover'+i+'wrap');
+      if (wrap) { wrap.innerHTML = `<img src="${b.cover_url}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover;">`; }
+    }
+  });
 }
 
+// ─── Comprar ───
 function buyBook(i) {
   const u = books[i]?.buy_url;
   if (u && u !== '#' && u !== '') window.open(u, '_blank');
   else alert('Enlace de compra no configurado aún.');
 }
 
-function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-// ── Admin auth ──
+// ─── Admin auth ───
 function openAdmin()  { document.getElementById('admin-ov').classList.add('on'); }
 function closeAdmin() {
   document.getElementById('admin-ov').classList.remove('on');
-  document.getElementById('a-main').style.display = 'none';
-  document.getElementById('a-login').style.display = 'block';
-  document.getElementById('lu').value = '';
-  document.getElementById('lp').value = '';
+  document.getElementById('a-main').style.display='none';
+  document.getElementById('a-login').style.display='block';
+  document.getElementById('lu').value=''; document.getElementById('lp').value='';
 }
 function doLogin() {
-  if (document.getElementById('lu').value.trim() === 'admin' &&
-      document.getElementById('lp').value.trim() === 'ronndu2026') {
-    document.getElementById('a-login').style.display = 'none';
-    document.getElementById('a-main').style.display = 'block';
+  if (document.getElementById('lu').value.trim()==='admin' &&
+      document.getElementById('lp').value.trim()==='ronndu2026') {
+    document.getElementById('a-login').style.display='none';
+    document.getElementById('a-main').style.display='block';
     fillForms();
-  } else { document.getElementById('lerr').style.display = 'block'; }
+  } else { document.getElementById('lerr').style.display='block'; }
 }
 
-// ── Tabs ──
+// ─── Tabs ───
 function tab(id, btn) {
-  document.querySelectorAll('.t-pane').forEach(p => p.classList.remove('on'));
-  document.querySelectorAll('.t-btn').forEach(b => b.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-  btn.classList.add('on');
+  document.querySelectorAll('.t-pane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.t-btn').forEach(b=>b.classList.remove('on'));
+  document.getElementById(id).classList.add('on'); btn.classList.add('on');
 }
 
-// ── Fill forms ──
+// ─── Fill admin forms ───
 function fillForms() {
   document.getElementById('fhn').value = cnt.hero_name    || '';
   document.getElementById('fht').value = cnt.hero_tagline || '';
@@ -406,10 +438,9 @@ function fillForms() {
   document.getElementById('fsx').value = cnt.social_x     || '';
   document.getElementById('fsi').value = cnt.social_ig    || '';
   document.getElementById('fse').value = cnt.social_email || '';
-
   const bl = document.getElementById('bklist');
   bl.innerHTML = '';
-  books.forEach((b, i) => {
+  books.forEach((b,i) => {
     bl.innerHTML += `<div class="bk-block">
       <p class="bk-block-t">LIBRO ${i+1}</p>
       <div class="bk-grid">
@@ -423,70 +454,62 @@ function fillForms() {
   });
 }
 
-// ── Save helpers ──
-function msg(txt, ok=true) {
-  const m = document.getElementById('amsg');
-  m.textContent = txt; m.className = 'a-msg ' + (ok ? 'ok' : 'err');
-  m.style.display = 'block';
-  setTimeout(() => m.style.display = 'none', 3200);
-}
-function busy(id, on, label) {
-  const b = document.getElementById(id);
-  b.disabled = on; b.textContent = on ? 'Guardando…' : label;
+// ─── Helpers ───
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function msg(t,ok=true){const m=document.getElementById('amsg');m.textContent=t;m.className='a-msg '+(ok?'ok':'bad');m.style.display='block';setTimeout(()=>m.style.display='none',3200);}
+function busy(id,on,label){const b=document.getElementById(id);b.disabled=on;b.textContent=on?'Guardando…':label;}
+
+async function sbUpsert(table, data) {
+  const r = await fetch(`${SB}/rest/v1/${table}`, {
+    method:'POST', headers:{...H,'Prefer':'resolution=merge-duplicates'}, body:JSON.stringify(data)
+  });
+  if (!r.ok) throw new Error('upsert error');
 }
 
+// ─── Save functions ───
 async function saveHero() {
-  busy('bsh', true);
-  try {
-    const n = document.getElementById('fhn').value;
-    const t = document.getElementById('fht').value;
-    await Promise.all([sbUpsert('site_content',{key:'hero_name',value:n}), sbUpsert('site_content',{key:'hero_tagline',value:t})]);
-    cnt.hero_name = n; cnt.hero_tagline = t; renderHero();
-    msg('Hero actualizado correctamente.');
-  } catch { msg('Error al guardar. Intente de nuevo.', false); }
-  busy('bsh', false, 'Guardar Hero');
+  busy('bsh',true);
+  const n=document.getElementById('fhn').value, t=document.getElementById('fht').value;
+  cnt.hero_name=n; cnt.hero_tagline=t; applyContent();
+  if (sbOk) { try { await Promise.all([sbUpsert('site_content',{key:'hero_name',value:n}),sbUpsert('site_content',{key:'hero_tagline',value:t})]); msg('Hero guardado en Supabase.'); } catch { msg('Guardado localmente (error Supabase).',false); } }
+  else { msg('Guardado localmente — sin conexión a Supabase.',false); }
+  busy('bsh',false,'Guardar Hero');
 }
 
 async function saveBooks() {
-  busy('bsb', true);
-  try {
-    const saves = books.map((b, i) => {
-      const u = { id:b.id, title:document.getElementById('bt'+i).value, genre:document.getElementById('bg'+i).value, price:document.getElementById('bp'+i).value, buy_url:document.getElementById('bu'+i).value, cover_url:document.getElementById('bc'+i).value };
-      books[i] = { ...b, ...u };
-      return sbUpsert('books', u);
-    });
-    await Promise.all(saves);
-    renderBooks();
-    msg('Libros actualizados correctamente.');
-  } catch { msg('Error al guardar. Intente de nuevo.', false); }
-  busy('bsb', false, 'Guardar Todos los Libros');
+  busy('bsb',true);
+  const updates = books.map((_,i)=>({id:books[i].id,title:document.getElementById('bt'+i).value,genre:document.getElementById('bg'+i).value,price:document.getElementById('bp'+i).value,buy_url:document.getElementById('bu'+i).value,cover_url:document.getElementById('bc'+i).value}));
+  updates.forEach((u,i)=>{ books[i]={...books[i],...u}; });
+  applyBooks();
+  if (sbOk) { try { await Promise.all(updates.map(u=>sbUpsert('books',u))); msg('Libros guardados en Supabase.'); } catch { msg('Guardado localmente (error Supabase).',false); } }
+  else { msg('Guardado localmente — sin conexión a Supabase.',false); }
+  busy('bsb',false,'Guardar Todos los Libros');
 }
 
 async function saveAuthor() {
-  busy('bsa', true);
-  try {
-    const fields = { author_name:document.getElementById('fan').value, author_img:document.getElementById('fai').value, bio_1:document.getElementById('fb1').value, bio_2:document.getElementById('fb2').value, bio_3:document.getElementById('fb3').value };
-    await Promise.all(Object.entries(fields).map(([k,v]) => sbUpsert('site_content',{key:k,value:v})));
-    Object.assign(cnt, fields); renderAuthor();
-    msg('Información del autor actualizada.');
-  } catch { msg('Error al guardar. Intente de nuevo.', false); }
-  busy('bsa', false, 'Guardar Autor');
+  busy('bsa',true);
+  const fields={author_name:document.getElementById('fan').value,author_img:document.getElementById('fai').value,bio_1:document.getElementById('fb1').value,bio_2:document.getElementById('fb2').value,bio_3:document.getElementById('fb3').value};
+  Object.assign(cnt,fields); applyContent();
+  if (sbOk) { try { await Promise.all(Object.entries(fields).map(([k,v])=>sbUpsert('site_content',{key:k,value:v}))); msg('Autor guardado en Supabase.'); } catch { msg('Guardado localmente (error Supabase).',false); } }
+  else { msg('Guardado localmente — sin conexión a Supabase.',false); }
+  busy('bsa',false,'Guardar Autor');
 }
 
 async function saveSocial() {
-  busy('bss', true);
-  try {
-    const fields = { social_x:document.getElementById('fsx').value, social_ig:document.getElementById('fsi').value, social_email:document.getElementById('fse').value };
-    await Promise.all(Object.entries(fields).map(([k,v]) => sbUpsert('site_content',{key:k,value:v})));
-    Object.assign(cnt, fields); renderSocial();
-    msg('Redes sociales actualizadas.');
-  } catch { msg('Error al guardar. Intente de nuevo.', false); }
-  busy('bss', false, 'Guardar Redes');
+  busy('bss',true);
+  const fields={social_x:document.getElementById('fsx').value,social_ig:document.getElementById('fsi').value,social_email:document.getElementById('fse').value};
+  Object.assign(cnt,fields); applyContent();
+  if (sbOk) { try { await Promise.all(Object.entries(fields).map(([k,v])=>sbUpsert('site_content',{key:k,value:v}))); msg('Redes guardadas en Supabase.'); } catch { msg('Guardado localmente (error Supabase).',false); } }
+  else { msg('Guardado localmente — sin conexión a Supabase.',false); }
+  busy('bss',false,'Guardar Redes');
 }
 
-document.getElementById('admin-ov').addEventListener('click', e => { if(e.target === e.currentTarget) closeAdmin(); });
+document.getElementById('admin-ov').addEventListener('click',e=>{if(e.target===e.currentTarget)closeAdmin();});
 
-init();
+// ─── INIT ───
+// La página se ve completa de inmediato con datos por defecto.
+// Supabase actualiza en segundo plano si hay conexión.
+loadFromSupabase();
 </script>
 </body>
 </html>
