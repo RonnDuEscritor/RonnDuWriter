@@ -26,7 +26,7 @@ HEADERS_SUPA = {
     "apikey": SUPABASE_KEY,
     "Authorization": f"Bearer {SUPABASE_KEY}",
     "Content-Type": "application/json",
-    "Prefer": "resolution=merge-duplicates,return=minimal"
+    "Prefer": "return=minimal"
 }
 
 HEADERS_WEB = {
@@ -55,21 +55,47 @@ class SupabaseClient:
         self.session = requests.Session()
         self.session.headers.update(HEADERS_SUPA)
 
+    def limpiar_tabla(self):
+        """Borra todos los registros para insertar frescos."""
+        try:
+            r = requests.delete(
+                f"{SUPABASE_URL}/rest/v1/precios_scrapeados?pais=eq.EC",
+                headers={
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": f"Bearer {SUPABASE_KEY}",
+                    "Content-Type": "application/json"
+                }
+            )
+            log.info(f"  Tabla limpiada: {r.status_code}")
+        except Exception as e:
+            log.error(f"  Error limpiando tabla: {e}")
+
     def bulk_upsert(self, records: list) -> int:
         if not records:
             return 0
         total = 0
-        for i in range(0, len(records), 500):
-            lote = records[i:i+500]
+        # Insertar en lotes de 200
+        for i in range(0, len(records), 200):
+            lote = records[i:i+200]
             try:
-                r = self.session.post(f"{SUPABASE_URL}/rest/v1/precios_scrapeados", json=lote)
+                r = requests.post(
+                    f"{SUPABASE_URL}/rest/v1/precios_scrapeados",
+                    json=lote,
+                    headers={
+                        "apikey": SUPABASE_KEY,
+                        "Authorization": f"Bearer {SUPABASE_KEY}",
+                        "Content-Type": "application/json",
+                        "Prefer": "return=minimal"
+                    }
+                )
                 if r.status_code in (200, 201, 204):
                     total += len(lote)
-                    log.info(f"  Lote {i//500+1}: {len(lote)} registros guardados")
+                    log.info(f"  Lote {i//200+1}: {len(lote)} registros guardados OK")
                 else:
-                    log.error(f"  Error lote {i//500+1}: {r.status_code} - {r.text[:200]}")
+                    log.error(f"  Error lote {i//200+1}: HTTP {r.status_code} -> {r.text[:300]}")
             except Exception as e:
-                log.error(f"  Error guardando lote: {e}")
+                log.error(f"  Error guardando lote {i//200+1}: {e}")
+            time.sleep(0.5)
         return total
 
 # ─────────────────────────────────────────────────────
@@ -378,7 +404,9 @@ def main():
 
     log.info(f"\n[1/2] Cargando {len(PRODUCTOS)} productos en 10 supermercados...")
     registros = generar_registros()
-    log.info(f"  Total registros: {len(registros)}")
+    log.info(f"  Total registros a insertar: {len(registros)}")
+    log.info("  Limpiando tabla previa...")
+    db.limpiar_tabla()
     guardados = db.bulk_upsert(registros)
     total += guardados
     log.info(f"  OK: {guardados} precios guardados")
