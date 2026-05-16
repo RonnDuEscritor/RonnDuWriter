@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RonnDu — Escritor</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;900&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- MailerLite Universal -->
+<script>
+  (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+  .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+  n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+  (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+  ml('account', '2353858');
+</script>
+<!-- End MailerLite Universal -->
+
 <style>
   :root {
     --black:#050505;--gold:#c9a84c;--gold-light:#e8c97a;--gold-pale:#f5e6b8;
@@ -45,7 +56,7 @@
   .hero-tag{margin-top:24px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--grey);letter-spacing:.12em;opacity:0;animation:fadeUp 1s .9s forwards;}
   .hero-div{margin:40px auto 0;width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),var(--blue-light),transparent);opacity:0;animation:fadeUp 1s 1.2s forwards;}
 
-  /* ── BOOKS ── */
+  /* BOOKS */
   #books{padding:100px 60px;}
   .books-grid{max-width:1200px;margin:0 auto;}
   .books-row{display:flex;justify-content:center;gap:40px;margin-bottom:40px;flex-wrap:wrap;}
@@ -61,8 +72,6 @@
   .book-genre{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);margin-bottom:14px;}
   .book-price{font-family:'Cinzel',serif;font-size:1.3rem;color:var(--gold-light);margin-bottom:6px;letter-spacing:.05em;}
   .book-price-note{font-size:.65rem;color:var(--grey);letter-spacing:.1em;margin-bottom:16px;}
-
-  /* Botones de compra mejorados */
   .buy-options{display:flex;flex-direction:column;gap:8px;width:100%;}
   .buy-btn-primary{background:linear-gradient(90deg,rgba(26,58,110,.7),rgba(201,168,76,.35));border:1px solid rgba(201,168,76,.5);color:var(--white);font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;padding:11px 0;cursor:pointer;transition:all .35s;width:100%;position:relative;overflow:hidden;text-decoration:none;display:block;text-align:center;}
   .buy-btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,58,110,.9),rgba(201,168,76,.5));opacity:0;transition:opacity .35s;}
@@ -74,7 +83,7 @@
   .buy-badge{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,var(--blue-mid),var(--blue));border:1px solid rgba(111,163,245,.3);color:var(--blue-bright);font-family:'Cinzel',serif;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;padding:3px 8px;}
   .buy-badge.new{background:linear-gradient(135deg,rgba(201,168,76,.3),rgba(201,168,76,.1));border-color:rgba(201,168,76,.3);color:var(--gold-light);}
 
-  /* ── REVIEWS ── */
+  /* REVIEWS */
   #reviews{padding:80px 60px;border-top:1px solid rgba(201,168,76,.08);}
   .reviews-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
   .review-card{background:linear-gradient(140deg,rgba(26,58,110,.07),rgba(5,5,5,.5));border:1px solid rgba(201,168,76,.1);padding:34px 28px 28px;position:relative;transition:all .4s;}
@@ -92,7 +101,7 @@
   .review-corner.tl{top:6px;left:6px;border-width:1px 0 0 1px;}
   .review-corner.br{bottom:6px;right:6px;border-width:0 1px 1px 0;}
 
-  /* ── NEWSLETTER ── */
+  /* NEWSLETTER */
   #newsletter{padding:90px 60px;border-top:1px solid rgba(26,58,110,.2);position:relative;overflow:hidden;}
   #newsletter::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(26,58,110,.12) 0%,transparent 70%);pointer-events:none;}
   .nl-inner{max-width:620px;margin:0 auto;text-align:center;position:relative;z-index:1;}
@@ -109,12 +118,39 @@
   .nl-input:focus{border-color:rgba(201,168,76,.45);background:rgba(201,168,76,.03);}
   .nl-submit{background:linear-gradient(90deg,rgba(26,58,110,.8),rgba(201,168,76,.4));border:1px solid rgba(201,168,76,.45);color:var(--white);font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;padding:14px 28px;cursor:pointer;transition:all .3s;white-space:nowrap;flex-shrink:0;}
   .nl-submit:hover{background:linear-gradient(90deg,rgba(26,58,110,.95),rgba(201,168,76,.6));border-color:var(--gold);}
-  .nl-submit:disabled{opacity:.5;cursor:not-allowed;}
-  .nl-privacy{font-size:.65rem;color:rgba(138,128,112,.5);letter-spacing:.08em;}
-  .nl-privacy a{color:rgba(201,168,76,.4);text-decoration:none;}
-  .nl-ok{display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--gold-light);text-align:center;padding:16px;border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.05);margin-top:10px;}
 
-  /* ── AUTHOR ── */
+  /* ── Separador "o" entre formulario y botón ML ── */
+  .nl-or{display:flex;align-items:center;gap:16px;max-width:480px;margin:20px auto;color:var(--grey);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;}
+  .nl-or::before,.nl-or::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.2),transparent);}
+
+  /* ── Botón MailerLite estilizado ── */
+  .nl-ml-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:transparent;
+    border:1px solid rgba(201,168,76,.35);
+    color:var(--gold-light);
+    font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;
+    padding:14px 36px;cursor:pointer;transition:all .4s;
+    position:relative;overflow:hidden;
+    max-width:480px;width:100%;margin:0 auto;
+  }
+  .nl-ml-btn::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(26,58,110,.3),rgba(201,168,76,.15),rgba(26,58,110,.3));
+    opacity:0;transition:opacity .4s;
+  }
+  .nl-ml-btn:hover::before{opacity:1;}
+  .nl-ml-btn:hover{border-color:var(--gold);color:var(--gold-pale);box-shadow:0 0 24px rgba(201,168,76,.12);}
+  .nl-ml-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;position:relative;z-index:1;flex-shrink:0;}
+  .nl-ml-btn span{position:relative;z-index:1;}
+  /* pequeña nota debajo del botón ML */
+  .nl-ml-note{font-size:.62rem;color:rgba(138,128,112,.45);letter-spacing:.08em;margin-top:10px;text-align:center;}
+
+  .nl-ok{display:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--gold-light);text-align:center;padding:16px;border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.05);margin-top:10px;max-width:480px;margin-left:auto;margin-right:auto;}
+  .nl-privacy{font-size:.65rem;color:rgba(138,128,112,.5);letter-spacing:.08em;margin-top:20px;}
+  .nl-privacy a{color:rgba(201,168,76,.4);text-decoration:none;}
+
+  /* AUTHOR */
   #author{padding:80px 60px 100px;border-top:1px solid rgba(201,168,76,.1);}
   .author-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:center;}
   .author-frame{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,rgba(26,58,110,.3),rgba(201,168,76,.1));border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
@@ -137,7 +173,7 @@
   footer{position:relative;z-index:1;text-align:center;padding:40px 60px;border-top:1px solid rgba(26,58,110,.3);font-size:.7rem;letter-spacing:.2em;color:rgba(138,128,112,.5);text-transform:uppercase;}
   footer span{color:rgba(201,168,76,.4);margin:0 8px;}
 
-  /* ══════ LOADER ══════ */
+  /* LOADER */
   #loader{position:fixed;inset:0;z-index:500;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity .8s ease;}
   #loader.hide{opacity:0;pointer-events:none;}
   .lo-particles{position:absolute;inset:0;overflow:hidden;}
@@ -160,7 +196,7 @@
   .lo-bar-fill{position:absolute;top:0;left:0;height:1px;width:0%;background:linear-gradient(90deg,var(--blue-mid),var(--gold),var(--blue-bright));transition:width .4s ease;box-shadow:0 0 8px rgba(201,168,76,.5);}
   .lo-pct{display:block;text-align:right;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;color:rgba(201,168,76,.5);margin-top:8px;}
 
-  /* ══════ CONTACT MODAL ══════ */
+  /* CONTACT MODAL */
   #contact-modal{display:none;position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);align-items:center;justify-content:center;}
   #contact-modal.on{display:flex;}
   .cm-box{width:100%;max-width:500px;background:linear-gradient(135deg,rgba(10,10,18,.98),rgba(12,18,35,.98));border:1px solid rgba(201,168,76,.2);position:relative;padding:60px 50px 50px;margin:20px;}
@@ -186,7 +222,7 @@
   .cm-corner.bl{bottom:8px;left:8px;border-width:0 0 1px 1px;}
   .cm-corner.br{bottom:8px;right:8px;border-width:0 1px 1px 0;}
 
-  /* ══════ ADMIN ══════ */
+  /* ADMIN */
   #admin-ov{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);overflow-y:auto;}
   #admin-ov.on{display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;}
   .a-panel{width:100%;max-width:800px;background:linear-gradient(135deg,rgba(10,10,15,.98),rgba(15,20,35,.98));border:1px solid rgba(201,168,76,.2);padding:50px 50px 40px;position:relative;margin:auto;}
@@ -288,14 +324,12 @@
     <div class="hero-div"></div>
   </section>
 
-  <!-- ════════════════ BOOKS ════════════════ -->
+  <!-- BOOKS -->
   <section id="books">
     <p class="sec-label">Bibliografía</p>
     <h2 class="sec-title">Obras <span>Publicadas</span></h2>
     <div class="books-grid">
-      <!-- FILA 1 -->
       <div class="books-row">
-
         <div class="book-card">
           <div class="buy-badge new">Disponible</div>
           <div class="book-cover"><img id="cover0" src="https://cdn.phototourl.com/free/2026-05-13-0d2fab4f-b99c-4224-8319-0ae54734e619.png" alt="Libro 1"></div>
@@ -308,7 +342,6 @@
             <a class="buy-btn-secondary" id="buy0b" href="#" target="_blank" onclick="return handleBuyAlt(0)">Ver en tienda</a>
           </div>
         </div>
-
         <div class="book-card">
           <div class="buy-badge new">Disponible</div>
           <div class="book-cover"><img id="cover1" src="https://cdn.phototourl.com/free/2026-05-13-2ada8a5d-260d-4604-88bc-8d5e56d22f1f.jpg" alt="Libro 2"></div>
@@ -321,7 +354,6 @@
             <a class="buy-btn-secondary" id="buy1b" href="#" target="_blank" onclick="return handleBuyAlt(1)">Ver en tienda</a>
           </div>
         </div>
-
         <div class="book-card">
           <div class="buy-badge new">Disponible</div>
           <div class="book-cover"><img id="cover2" src="https://cdn.phototourl.com/free/2026-05-13-0a31dda0-7d1b-4697-8678-9645e2080f73.png" alt="Libro 3"></div>
@@ -334,11 +366,8 @@
             <a class="buy-btn-secondary" id="buy2b" href="#" target="_blank" onclick="return handleBuyAlt(2)">Ver en tienda</a>
           </div>
         </div>
-
       </div>
-      <!-- FILA 2 -->
       <div class="books-row">
-
         <div class="book-card">
           <div class="buy-badge">Próximamente</div>
           <div class="book-cover" id="cover3wrap"><div class="book-cover-ph">PRÓXIMAMENTE</div></div>
@@ -350,7 +379,6 @@
             <a class="buy-btn-primary" onclick="scrollToNewsletter()"><span>✉ Avísame cuando salga</span></a>
           </div>
         </div>
-
         <div class="book-card">
           <div class="buy-badge">Próximamente</div>
           <div class="book-cover" id="cover4wrap"><div class="book-cover-ph">PRÓXIMAMENTE</div></div>
@@ -362,17 +390,15 @@
             <a class="buy-btn-primary" onclick="scrollToNewsletter()"><span>✉ Avísame cuando salga</span></a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ════════════════ REVIEWS ════════════════ -->
+  <!-- REVIEWS -->
   <section id="reviews">
     <p class="sec-label">Lectores</p>
     <h2 class="sec-title">Lo que dicen <span>los lectores</span></h2>
     <div class="reviews-grid">
-
       <div class="review-card">
         <div class="review-corner tl"></div><div class="review-corner br"></div>
         <span class="review-quote-mark">"</span>
@@ -382,7 +408,6 @@
         <div class="review-author" id="rv-author0">Ana M.</div>
         <div class="review-book" id="rv-book0">Lectora verificada</div>
       </div>
-
       <div class="review-card">
         <div class="review-corner tl"></div><div class="review-corner br"></div>
         <span class="review-quote-mark">"</span>
@@ -392,7 +417,6 @@
         <div class="review-author" id="rv-author1">Carlos R.</div>
         <div class="review-book" id="rv-book1">Lector verificado</div>
       </div>
-
       <div class="review-card">
         <div class="review-corner tl"></div><div class="review-corner br"></div>
         <span class="review-quote-mark">"</span>
@@ -402,7 +426,6 @@
         <div class="review-author" id="rv-author2">María L.</div>
         <div class="review-book" id="rv-book2">Lectora verificada</div>
       </div>
-
     </div>
   </section>
 
@@ -419,18 +442,29 @@
         <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
         Regalo: primeros capítulos gratis al suscribirte
       </div>
+
+      <!-- Formulario rápido inline -->
       <div class="nl-form" id="nl-form">
         <input class="nl-input" type="email" id="nl-email" placeholder="tu@correo.com" required>
         <button class="nl-submit" id="nl-btn" onclick="subscribeNewsletter()">Suscribirme</button>
       </div>
-      <div class="nl-ok" id="nl-ok">
-        ✦ ¡Gracias! Te enviaré novedades muy pronto. Revisa tu correo.
-      </div>
+      <div class="nl-ok" id="nl-ok">✦ ¡Gracias! Te enviaré novedades muy pronto. Revisa tu correo.</div>
+
+      <!-- Separador -->
+      <div class="nl-or">o</div>
+
+      <!-- Botón MailerLite popup (oficial, con doble confirmación) -->
+      <button class="nl-ml-btn ml-onclick-form" onclick="ml('show', 'PUEb9g', true)">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>Unirme al Club de Lectura</span>
+      </button>
+      <p class="nl-ml-note">✦ Formulario oficial · Confirmación por email · Sin spam</p>
+
       <p class="nl-privacy">Sin spam, solo novedades literarias. <a href="#">Política de privacidad.</a></p>
     </div>
   </section>
 
-  <!-- ════════════════ AUTHOR ════════════════ -->
+  <!-- AUTHOR -->
   <section id="author">
     <div class="author-inner">
       <div class="author-image-wrap">
@@ -519,7 +553,6 @@
         <button class="t-btn" onclick="tab('p-author',this)">Autor</button>
         <button class="t-btn" onclick="tab('p-social',this)">Redes</button>
       </div>
-
       <div class="t-pane on" id="p-hero">
         <div class="a-sec">
           <p class="a-sec-t">Sección Principal</p>
@@ -528,7 +561,6 @@
           <button class="a-btn" id="bsh" onclick="saveHero()">Guardar</button>
         </div>
       </div>
-
       <div class="t-pane" id="p-books">
         <div class="a-sec">
           <p class="a-sec-t">Gestión de Libros</p>
@@ -536,15 +568,13 @@
           <button class="a-btn" id="bsb" onclick="saveBooks()">Guardar Libros</button>
         </div>
       </div>
-
       <div class="t-pane" id="p-reviews">
         <div class="a-sec">
-          <p class="a-sec-t">Reseñas de Lectores (3)</p>
+          <p class="a-sec-t">Reseñas de Lectores</p>
           <div id="rvlist"></div>
           <button class="a-btn" id="bsr" onclick="saveReviews()">Guardar Reseñas</button>
         </div>
       </div>
-
       <div class="t-pane" id="p-author">
         <div class="a-sec">
           <p class="a-sec-t">Información del Autor</p>
@@ -556,7 +586,6 @@
           <button class="a-btn" id="bsa" onclick="saveAuthor()">Guardar</button>
         </div>
       </div>
-
       <div class="t-pane" id="p-social">
         <div class="a-sec">
           <p class="a-sec-t">Redes & Contacto</p>
@@ -565,11 +594,6 @@
           <div class="a-field"><label>Instagram (URL)</label><input type="text" id="fsi" placeholder="https://instagram.com/..."></div>
           <div class="a-field"><label>Texto @Twitter</label><input type="text" id="fsxt" placeholder="@RonnDu"></div>
           <div class="a-field"><label>Texto @Instagram</label><input type="text" id="fsit" placeholder="@RonnDu"></div>
-          <div class="a-field">
-            <label>URL Suscripción Newsletter</label>
-            <input type="text" id="fnl" placeholder="https://mailerlite.com/... o https://brevo.com/...">
-            <small>Pega aquí el enlace de tu formulario de MailerLite, Brevo, etc. Si lo dejas vacío, los correos se guardan localmente.</small>
-          </div>
           <button class="a-btn" id="bss" onclick="saveSocial()">Guardar</button>
         </div>
       </div>
@@ -598,15 +622,15 @@ let reviews=[
 let cnt={
   hero_name:'RonnDu',hero_tagline:'Palabras que transforman · historias que permanecen',
   author_name:'RonnDu',author_img:'',
-  bio_1:'Escritor independiente con una pasión por explorar los límites de la narrativa contemporánea.',
-  bio_2:'Creo en el poder de las palabras para transformar, provocar y conectar.',
-  bio_3:'Mi visión como escritor es crear obras que permanezcan con el lector.',
+  bio_1:'Escritor independiente con una pasión por explorar los límites de la narrativa contemporánea. Mi trabajo se centra en crear historias que desafían las convenciones mientras mantienen una conexión profunda con la experiencia humana.',
+  bio_2:'Creo en el poder de las palabras para transformar, provocar y conectar. Cada libro que escribo es una invitación a ver el mundo desde una perspectiva diferente, a cuestionar lo establecido y a encontrar belleza en lo inesperado.',
+  bio_3:'Mi visión como escritor es crear obras que permanezcan con el lector mucho después de cerrar la última página. Historias que generen conversaciones, que inspiren reflexión y que, sobre todo, entretengan y emocionen.',
   social_email:'ronndu@gmail.com',social_x:'#',social_ig:'#',
-  social_x_text:'@RonnDu',social_ig_text:'@RonnDu',newsletter_url:''
+  social_x_text:'@RonnDu',social_ig_text:'@RonnDu'
 };
 let sbOk=false;
 
-// ── LOADER ──
+// ── Loader partículas ──
 (function(){
   const c=document.getElementById('lo-particles');
   for(let i=0;i<18;i++){
@@ -643,7 +667,6 @@ async function loadFromSupabase(){
     setP(85);
     if(bd.length){books=bd;applyBooks();}
     cd.forEach(r=>cnt[r.key]=r.value);
-    // reviews desde site_content
     for(let i=0;i<3;i++){
       if(cnt['rv_text'+i])reviews[i].text=cnt['rv_text'+i];
       if(cnt['rv_author'+i])reviews[i].author=cnt['rv_author'+i];
@@ -661,7 +684,6 @@ async function loadFromSupabase(){
   setTimeout(hideLoader,300);
 }
 
-// ── Apply DOM ──
 function applyContent(){
   document.getElementById('hero-name').innerText=cnt.hero_name||'RonnDu';
   document.getElementById('hero-tag').innerText=cnt.hero_tagline||'';
@@ -682,15 +704,8 @@ function applyContent(){
 function applyBooks(){
   books.forEach((b,i)=>{
     const t=document.getElementById('btitle'+i),g=document.getElementById('bgenre'+i),p=document.getElementById('bprice'+i);
-    if(t)t.innerText=b.title;
-    if(g)g.innerText=b.genre;
-    if(p)p.innerText=b.price;
-    // portadas libros 3-4
-    if(i>=3&&b.cover_url){
-      const w=document.getElementById('cover'+i+'wrap');
-      if(w)w.innerHTML=`<img src="${b.cover_url}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover;">`;
-    }
-    // URLs de compra
+    if(t)t.innerText=b.title;if(g)g.innerText=b.genre;if(p)p.innerText=b.price;
+    if(i>=3&&b.cover_url){const w=document.getElementById('cover'+i+'wrap');if(w)w.innerHTML=`<img src="${b.cover_url}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover;">`;}
     const btn=document.getElementById('buy'+i),btnb=document.getElementById('buy'+i+'b');
     if(btn&&b.buy_url&&b.buy_url!=='#')btn.href=b.buy_url;
     if(btnb&&b.buy_url_alt&&b.buy_url_alt!=='#')btnb.href=b.buy_url_alt;
@@ -700,37 +715,22 @@ function applyBooks(){
 function applyReviews(){
   reviews.forEach((r,i)=>{
     const t=document.getElementById('rv-text'+i),a=document.getElementById('rv-author'+i),b=document.getElementById('rv-book'+i);
-    if(t)t.innerText=r.text;
-    if(a)a.innerText=r.author;
-    if(b)b.innerText=r.book;
+    if(t)t.innerText=r.text;if(a)a.innerText=r.author;if(b)b.innerText=r.book;
   });
 }
 
 // ── Compra ──
-function handleBuy(i){
-  const u=books[i]?.buy_url;
-  if(!u||u==='#'){alert('Enlace de compra no configurado aún.\nAgrega el enlace desde el Panel Admin → Libros.');return false;}
-  return true;
-}
-function handleBuyAlt(i){
-  const u=books[i]?.buy_url_alt;
-  if(!u||u==='#'){alert('Enlace de tienda no configurado aún.');return false;}
-  return true;
-}
+function handleBuy(i){const u=books[i]?.buy_url;if(!u||u==='#'){alert('Enlace de compra no configurado.\nAgrégalo desde Panel Admin → Libros.');return false;}return true;}
+function handleBuyAlt(i){const u=books[i]?.buy_url_alt;if(!u||u==='#'){alert('Enlace de tienda no configurado.');return false;}return true;}
 
-// ── Newsletter ──
+// ── Newsletter inline (guarda en Supabase) ──
 function scrollToNewsletter(){document.getElementById('newsletter').scrollIntoView({behavior:'smooth'});}
 function subscribeNewsletter(){
   const email=document.getElementById('nl-email').value.trim();
   if(!email||!email.includes('@')){alert('Por favor ingresa un correo válido.');return;}
-  // Si hay URL de newsletter externa, redirigir ahí
-  if(cnt.newsletter_url){window.open(cnt.newsletter_url+'?email='+encodeURIComponent(email),'_blank');}
   document.getElementById('nl-form').style.display='none';
   document.getElementById('nl-ok').style.display='block';
-  // Guardar en Supabase si disponible
-  if(sbOk){
-    fetch(`${SB}/rest/v1/site_content`,{method:'POST',headers:{...H,'Prefer':'resolution=merge-duplicates'},body:JSON.stringify({key:'subscriber_'+Date.now(),value:email})}).catch(()=>{});
-  }
+  if(sbOk){fetch(`${SB}/rest/v1/site_content`,{method:'POST',headers:{...H,'Prefer':'resolution=merge-duplicates'},body:JSON.stringify({key:'subscriber_'+Date.now(),value:email})}).catch(()=>{});}
 }
 
 // ── Contacto ──
@@ -761,30 +761,23 @@ function fillForms(){
   document.getElementById('fsi').value=cnt.social_ig||'';
   document.getElementById('fsxt').value=cnt.social_x_text||'';
   document.getElementById('fsit').value=cnt.social_ig_text||'';
-  document.getElementById('fnl').value=cnt.newsletter_url||'';
-
-  // Books
   const bl=document.getElementById('bklist');bl.innerHTML='';
   books.forEach((b,i)=>{
-    bl.innerHTML+=`<div class="bk-block">
-      <p class="bk-block-t">LIBRO ${i+1}</p>
+    bl.innerHTML+=`<div class="bk-block"><p class="bk-block-t">LIBRO ${i+1}</p>
       <div class="bk-grid">
         <div class="a-field"><label>Título</label><input type="text" id="bt${i}" value="${esc(b.title)}"></div>
         <div class="a-field"><label>Género</label><input type="text" id="bg${i}" value="${esc(b.genre)}"></div>
         <div class="a-field"><label>Precio</label><input type="text" id="bp${i}" value="${esc(b.price)}"></div>
       </div>
-      <div class="a-field" style="margin-top:10px;margin-bottom:0"><label>🛒 URL Comprar (Gumroad / PayPal / Stripe)</label><input type="text" id="bu${i}" value="${esc(b.buy_url||'')}" placeholder="https://gumroad.com/l/..."></div>
-      <div class="a-field" style="margin-top:10px;margin-bottom:0"><label>🏪 URL Ver en tienda (Amazon / web)</label><input type="text" id="bua${i}" value="${esc(b.buy_url_alt||'')}" placeholder="https://amazon.com/..."></div>
-      <div class="a-field" style="margin-top:10px;margin-bottom:0"><label>URL de Portada</label><input type="text" id="bc${i}" value="${esc(b.cover_url||'')}" placeholder="https://..."></div>
+      <div class="a-field" style="margin-top:10px;margin-bottom:0"><label>🛒 URL Comprar (Gumroad/PayPal/Stripe)</label><input type="text" id="bu${i}" value="${esc(b.buy_url||'')}" placeholder="https://gumroad.com/l/..."></div>
+      <div class="a-field" style="margin-top:10px;margin-bottom:0"><label>🏪 URL Ver en tienda</label><input type="text" id="bua${i}" value="${esc(b.buy_url_alt||'')}" placeholder="https://amazon.com/..."></div>
+      <div class="a-field" style="margin-top:10px;margin-bottom:0"><label>URL Portada</label><input type="text" id="bc${i}" value="${esc(b.cover_url||'')}" placeholder="https://..."></div>
     </div>`;
   });
-
-  // Reviews
   const rl=document.getElementById('rvlist');rl.innerHTML='';
   reviews.forEach((r,i)=>{
-    rl.innerHTML+=`<div class="rv-block">
-      <p class="rv-block-t">RESEÑA ${i+1}</p>
-      <div class="a-field"><label>Texto de la reseña</label><textarea id="rt${i}">${esc(r.text)}</textarea></div>
+    rl.innerHTML+=`<div class="rv-block"><p class="rv-block-t">RESEÑA ${i+1}</p>
+      <div class="a-field"><label>Texto</label><textarea id="rt${i}">${esc(r.text)}</textarea></div>
       <div class="a-field" style="margin-bottom:0"><label>Nombre del lector</label><input type="text" id="ra${i}" value="${esc(r.author)}"></div>
       <div class="a-field" style="margin-top:10px;margin-bottom:0"><label>Libro / Fuente</label><input type="text" id="rb${i}" value="${esc(r.book)}"></div>
     </div>`;
@@ -809,12 +802,7 @@ async function saveBooks(){
 async function saveReviews(){
   busy('bsr',true);
   const fields={};
-  reviews.forEach((_,i)=>{
-    reviews[i].text=document.getElementById('rt'+i).value;
-    reviews[i].author=document.getElementById('ra'+i).value;
-    reviews[i].book=document.getElementById('rb'+i).value;
-    fields['rv_text'+i]=reviews[i].text;fields['rv_author'+i]=reviews[i].author;fields['rv_book'+i]=reviews[i].book;
-  });
+  reviews.forEach((_,i)=>{reviews[i].text=document.getElementById('rt'+i).value;reviews[i].author=document.getElementById('ra'+i).value;reviews[i].book=document.getElementById('rb'+i).value;fields['rv_text'+i]=reviews[i].text;fields['rv_author'+i]=reviews[i].author;fields['rv_book'+i]=reviews[i].book;});
   applyReviews();
   if(sbOk){try{await Promise.all(Object.entries(fields).map(([k,v])=>sbUp('site_content',{key:k,value:v})));msg('Reseñas guardadas.');}catch{msg('Error Supabase.',false);}}else msg('Guardado local.',false);
   busy('bsr',false,'Guardar Reseñas');
@@ -822,7 +810,7 @@ async function saveReviews(){
 
 async function saveAuthor(){busy('bsa',true);const f={author_name:document.getElementById('fan').value,author_img:document.getElementById('fai').value,bio_1:document.getElementById('fb1').value,bio_2:document.getElementById('fb2').value,bio_3:document.getElementById('fb3').value};Object.assign(cnt,f);applyContent();if(sbOk){try{await Promise.all(Object.entries(f).map(([k,v])=>sbUp('site_content',{key:k,value:v})));msg('Autor guardado.');}catch{msg('Error Supabase.',false);}}else msg('Guardado local.',false);busy('bsa',false,'Guardar');}
 
-async function saveSocial(){busy('bss',true);const f={social_email:document.getElementById('fse').value,social_x:document.getElementById('fsx').value,social_ig:document.getElementById('fsi').value,social_x_text:document.getElementById('fsxt').value,social_ig_text:document.getElementById('fsit').value,newsletter_url:document.getElementById('fnl').value};Object.assign(cnt,f);applyContent();if(sbOk){try{await Promise.all(Object.entries(f).map(([k,v])=>sbUp('site_content',{key:k,value:v})));msg('Redes guardadas.');}catch{msg('Error Supabase.',false);}}else msg('Guardado local.',false);busy('bss',false,'Guardar');}
+async function saveSocial(){busy('bss',true);const f={social_email:document.getElementById('fse').value,social_x:document.getElementById('fsx').value,social_ig:document.getElementById('fsi').value,social_x_text:document.getElementById('fsxt').value,social_ig_text:document.getElementById('fsit').value};Object.assign(cnt,f);applyContent();if(sbOk){try{await Promise.all(Object.entries(f).map(([k,v])=>sbUp('site_content',{key:k,value:v})));msg('Redes guardadas.');}catch{msg('Error Supabase.',false);}}else msg('Guardado local.',false);busy('bss',false,'Guardar');}
 
 document.getElementById('admin-ov').addEventListener('click',e=>{if(e.target===e.currentTarget)closeAdmin();});
 
