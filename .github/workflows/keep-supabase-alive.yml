@@ -2,9 +2,10 @@ name: Keep Supabase Alive
 
 on:
   schedule:
-    # Se ejecuta cada 6 días a las 12:00 UTC
-    - cron: '0 12 */6 * *'
-  workflow_dispatch: # permite ejecutarlo manualmente también
+    - cron: '0 6 * * *'    # 6:00 AM UTC cada día
+    - cron: '0 13 * * *'   # 1:00 PM UTC cada día
+    - cron: '0 20 * * *'   # 8:00 PM UTC cada día
+  workflow_dispatch:        # ejecución manual también
 
 jobs:
   ping:
@@ -12,8 +13,13 @@ jobs:
     steps:
       - name: Ping Supabase
         run: |
-          curl -s \
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
             -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4eGZ2eWd1eW9sZndjcG51dHRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2Mjk4MDMsImV4cCI6MjA5NDIwNTgwM30.FPcKO0xKaYLNBhV2np9dDwTRcj_AgVTbEQSzID9_PrQ" \
             -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4eGZ2eWd1eW9sZndjcG51dHRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2Mjk4MDMsImV4cCI6MjA5NDIwNTgwM30.FPcKO0xKaYLNBhV2np9dDwTRcj_AgVTbEQSzID9_PrQ" \
-            "https://gxxfvyguyolfwcpnuttq.supabase.co/rest/v1/site_content?key=eq.hero_name&select=value"
-          echo "✅ Supabase ping enviado correctamente"
+            "https://gxxfvyguyolfwcpnuttq.supabase.co/rest/v1/site_content?key=eq.hero_name&select=value")
+          echo "HTTP Status: $STATUS"
+          if [ "$STATUS" = "200" ]; then
+            echo "✅ Supabase activo y respondiendo correctamente"
+          else
+            echo "⚠️ Supabase respondió con status $STATUS"
+          fi
